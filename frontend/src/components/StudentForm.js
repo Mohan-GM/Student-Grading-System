@@ -23,7 +23,7 @@ function StudentForm({ onStudentAdded }) {
     const grade = totalMarks >= 250 ? "A" : totalMarks >= 200 ? "B" : "C";
 
     try {
-      await axios.post("https://student-grading-system-7oyy.onrender.com", {
+      await axios.post("https://student-grading-system-7oyy.onrender.com/api/students", {
         name,
         rollNumber,
         class: className,
