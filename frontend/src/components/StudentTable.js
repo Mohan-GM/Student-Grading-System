@@ -6,7 +6,7 @@ function StudentTable({ students, onStudentDeleted }) {
     if (!window.confirm("Are you sure you want to delete this student?")) return;
 
     try {
-      await axios.delete(`https://student-grading-system-qs5d.onrender.com/api/students/${id}`);
+      await axios.delete(`https://student-grading-system-7oyy.onrender.com/api/students/${id}`);
       alert("✅ Student deleted successfully!");
       onStudentDeleted(); // refresh data
     } catch (err) {

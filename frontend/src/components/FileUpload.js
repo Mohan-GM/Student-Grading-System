@@ -13,7 +13,7 @@ export default function FileUpload({ onUploadComplete }) {
     formData.append("file", file);
 
     try {
-      await axios.post("https://student-grading-system-qs5d.onrender.com", formData);
+      await axios.post("https://student-grading-system-7oyy.onrender.com", formData);
       alert("✅ File uploaded & students added successfully!");
       onUploadComplete && onUploadComplete();
       setFile(null);
@@ -26,13 +26,13 @@ export default function FileUpload({ onUploadComplete }) {
   };
 
   const handleExport = () => {
-    window.open("https://student-grading-system-qs5d.onrender.com/api/files/export", "_blank");
+    window.open("https://student-grading-system-7oyy.onrender.com/api/files/export", "_blank");
   };
 
   const handleDeleteAll = async () => {
     if (!window.confirm("⚠️ Delete all student records? This cannot be undone!")) return;
     try {
-      await axios.delete("https://student-grading-system-qs5d.onrender.com/api/students");
+      await axios.delete("https://student-grading-system-7oyy.onrender.com/api/students");
       alert("🧹 All student records deleted successfully!");
       onUploadComplete && onUploadComplete();
     } catch (err) {

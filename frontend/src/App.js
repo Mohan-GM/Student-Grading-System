@@ -12,7 +12,7 @@ function App() {
   const [students, setStudents] = useState([]);
 
   // 🔗 Replace localhost with your Render backend URL
-  const API_URL = "https://student-grading-system-qs5d.onrender.com";
+  const API_URL = "https://student-grading-system-7oyy.onrender.com";
 
   const fetchStudents = async () => {
     try {
