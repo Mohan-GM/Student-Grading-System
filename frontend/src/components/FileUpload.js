@@ -13,26 +13,37 @@ export default function FileUpload({ onUploadComplete }) {
     formData.append("file", file);
 
     try {
-      await axios.post("https://student-grading-system-7oyy.onrender.com", formData);
+      await axios.post(
+        "https://student-grading-system-7oyy.onrender.com/api/upload",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("✅ File uploaded & students added successfully!");
       onUploadComplete && onUploadComplete();
       setFile(null);
     } catch (err) {
+      console.error("❌ Upload error:", err);
       alert("❌ Upload failed. Check backend console.");
-      console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleExport = () => {
-    window.open("https://student-grading-system-7oyy.onrender.com/api/files/export", "_blank");
+    window.open(
+      "https://student-grading-system-7oyy.onrender.com/api/files/export",
+      "_blank"
+    );
   };
 
   const handleDeleteAll = async () => {
     if (!window.confirm("⚠️ Delete all student records? This cannot be undone!")) return;
     try {
-      await axios.delete("https://student-grading-system-7oyy.onrender.com/api/students");
+      await axios.delete(
+        "https://student-grading-system-7oyy.onrender.com/api/students"
+      );
       alert("🧹 All student records deleted successfully!");
       onUploadComplete && onUploadComplete();
     } catch (err) {
